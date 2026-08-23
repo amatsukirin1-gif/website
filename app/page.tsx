@@ -1,13 +1,169 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Mail, Phone, MapPin, Calendar, Heart, Target, Lightbulb, Handshake, X } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Calendar, Heart, Target, Lightbulb, Handshake, X, Bell, Settings, Menu } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
   const [showPartnershipModal, setShowPartnershipModal] = useState(false);
+  const [showNotificationPanel, setShowNotificationPanel] = useState(false);
+  const [showSettingsPanel, setShowSettingsPanel] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Header/Navigation */}
+      <header className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-40 border-b border-gray-200 dark:border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                <Heart className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+              </div>
+              <span className="font-bold text-sm sm:text-lg hidden sm:block">Community Foundation</span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-6">
+              <a href="#who-we-are" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Who We Are</a>
+              <a href="#vision" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Our Vision</a>
+              <a href="#updates" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Updates</a>
+              <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+            </nav>
+
+            {/* Action Icons */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              <button
+                onClick={() => setShowNotificationPanel(!showNotificationPanel)}
+                className="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+              >
+                <Bell className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-300" />
+                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+              </button>
+              <button
+                onClick={() => setShowSettingsPanel(!showSettingsPanel)}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+              >
+                <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-300" />
+              </button>
+              <button
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+                className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+              >
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-300" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {showMobileMenu && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-gray-200 dark:border-gray-800"
+            >
+              <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+                <a href="#who-we-are" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Who We Are</a>
+                <a href="#vision" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Our Vision</a>
+                <a href="#updates" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Updates</a>
+                <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* Notification Panel */}
+      <AnimatePresence>
+        {showNotificationPanel && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed top-16 sm:top-20 right-4 sm:right-6 w-80 sm:w-96 bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-800 z-50 overflow-hidden"
+          >
+            <div className="p-4 border-b border-gray-200 dark:border-gray-800">
+              <h3 className="font-bold text-lg">Notifications</h3>
+            </div>
+            <div className="max-h-96 overflow-y-auto">
+              <div className="p-4 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                  <div>
+                    <p className="font-medium text-sm">New Partnership Opportunity</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">TechCorp wants to discuss CSR collaboration</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">2 hours ago</p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-4 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                  <div>
+                    <p className="font-medium text-sm">Project Milestone Reached</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Kenya school construction completed</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">1 day ago</p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-4 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                  <div>
+                    <p className="font-medium text-sm">Upcoming Event</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Annual Gala next month - RSVP required</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">3 days ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Settings Panel */}
+      <AnimatePresence>
+        {showSettingsPanel && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed top-16 sm:top-20 right-4 sm:right-6 w-72 bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-800 z-50"
+          >
+            <div className="p-4 border-b border-gray-200 dark:border-gray-800">
+              <h3 className="font-bold text-lg">Settings</h3>
+            </div>
+            <div className="p-4 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Dark Mode</span>
+                <button className="w-12 h-6 bg-gray-200 dark:bg-blue-600 rounded-full relative">
+                  <span className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform dark:translate-x-6"></span>
+                </button>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Notifications</span>
+                <button className="w-12 h-6 bg-blue-600 rounded-full relative">
+                  <span className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full translate-x-6"></span>
+                </button>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Email Updates</span>
+                <button className="w-12 h-6 bg-blue-600 rounded-full relative">
+                  <span className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full translate-x-6"></span>
+                </button>
+              </div>
+              <hr className="border-gray-200 dark:border-gray-800" />
+              <button className="w-full text-left text-sm text-red-600 hover:text-red-700 transition-colors">
+                Log Out
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800" />
@@ -70,7 +226,7 @@ export default function Home() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900">
+      <section id="who-we-are" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -92,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* Vision | Mission | Philosophy Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-800">
+      <section id="vision" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <motion.div
@@ -175,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* Latest Updates Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900">
+      <section id="updates" className="py-12 sm:py-16 md:py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -244,7 +400,7 @@ export default function Home() {
       </section>
 
       {/* Contact Us Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-800">
+      <section id="contact" className="py-12 sm:py-16 md:py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
