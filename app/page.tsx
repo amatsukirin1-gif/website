@@ -19,6 +19,14 @@ export default function Home() {
             <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 sm:mb-6 shadow-lg">
               <Heart className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
             </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400 mb-2"
+            >
+              COMMUNITY FOUNDATION
+            </motion.p>
           </motion.div>
           
           <motion.h1
@@ -36,7 +44,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-4"
           >
-            Empowering communities through innovative partnerships and sustainable solutions for a better future.
+            Since 2015, we've been empowering communities through innovative partnerships, sustainable solutions, and collaborative programs that create lasting positive change.
           </motion.p>
           
           <motion.div
@@ -68,9 +76,11 @@ export default function Home() {
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Who We Are</h2>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed px-2 sm:px-0">
-              We are a dedicated organization committed to fostering positive change through collaborative partnerships. 
-              Our team brings together diverse expertise and passion to create meaningful impact in communities worldwide. 
-              We believe in the power of unity and shared vision to drive sustainable development and growth.
+              The Community Foundation is a 501(c)(3) nonprofit organization founded in 2015 with a mission to create sustainable, 
+              community-driven solutions. With over 50 partner organizations across 12 countries, we've impacted more than 
+              100,000 lives through education programs, healthcare initiatives, and economic development projects. 
+              Our team of 45 dedicated professionals and 200+ volunteers work tirelessly to bridge gaps and build stronger, 
+              more resilient communities.
             </p>
           </motion.div>
         </div>
@@ -92,7 +102,8 @@ export default function Home() {
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Vision</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                To be the leading catalyst for positive change, creating a world where communities thrive through sustainable partnerships and innovation.
+                By 2030, we envision a world where every community has access to quality education, healthcare, and economic opportunities. 
+                We aim to create a global network of 500 partner organizations serving 1 million people across 25 countries.
               </p>
             </motion.div>
 
@@ -108,7 +119,8 @@ export default function Home() {
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Mission</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                To empower communities by building strategic partnerships, providing resources, and fostering collaboration for sustainable development.
+                We deliver sustainable community development programs through three core pillars: Education (school building, scholarships), 
+                Healthcare (mobile clinics, health education), and Economic Empowerment (microfinance, skills training).
               </p>
             </motion.div>
 
@@ -124,7 +136,8 @@ export default function Home() {
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Philosophy</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                We believe in transparency, integrity, and the transformative power of collective action. Every partnership is built on trust and mutual respect.
+                We practice "Community-Led Development" - local communities identify their needs, design solutions, and lead implementation. 
+                Our role is to provide resources, expertise, and connections while respecting local wisdom and culture.
               </p>
             </motion.div>
           </div>
@@ -143,7 +156,8 @@ export default function Home() {
             <Handshake className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6" />
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Partner With Us</h2>
             <p className="text-base sm:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto text-blue-100 px-4">
-              Join our network of changemakers and help us create lasting impact. Together, we can build a better future for all.
+              Whether you're a corporation looking for CSR opportunities, a foundation seeking collaboration, or an individual wanting to make a difference, 
+              we have partnership programs tailored to your goals. Join our 50+ partners including Fortune 500 companies, international NGOs, and local community organizations.
             </p>
             <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm sm:text-base">
               Start a Partnership
@@ -178,9 +192,9 @@ export default function Home() {
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="text-xs sm:text-sm font-medium">August 2026</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">New Partnership Initiative Launched</h3>
+              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">New School Opens in Rural Kenya</h3>
               <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
-                We're excited to announce our new global partnership program aimed at expanding our reach and impact.
+                Our latest education initiative has opened doors for 500 students in Kitui County with modern classrooms and computer lab.
               </p>
             </motion.div>
 
@@ -195,9 +209,9 @@ export default function Home() {
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="text-xs sm:text-sm font-medium">July 2026</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Community Impact Report Published</h3>
+              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">$2M Healthcare Partnership Announced</h3>
               <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
-                Our annual impact report showcases the remarkable achievements of our community partners.
+                Major healthcare corporation partners with us to fund mobile clinics across 5 underserved regions in Southeast Asia.
               </p>
             </motion.div>
 
@@ -212,9 +226,9 @@ export default function Home() {
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="text-xs sm:text-sm font-medium">June 2026</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Upcoming Events Announced</h3>
+              <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">Volunteer Program Expands to Europe</h3>
               <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm">
-                Join us for our upcoming workshops and networking sessions designed to foster collaboration.
+                Our successful volunteer program now includes opportunities in Germany, France, and Spain with 100+ new positions available.
               </p>
             </motion.div>
           </div>
@@ -247,7 +261,8 @@ export default function Home() {
                 <Mail className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold mb-2">Email</h3>
-              <p className="text-gray-600 dark:text-gray-300">contact@organization.com</p>
+              <p className="text-gray-600 dark:text-gray-300">info@communityfoundation.org</p>
+              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mt-1">partnerships@communityfoundation.org</p>
             </motion.div>
 
             <motion.div
@@ -261,7 +276,8 @@ export default function Home() {
                 <Phone className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold mb-2">Phone</h3>
-              <p className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+              <p className="text-gray-600 dark:text-gray-300">+1 (415) 555-0123</p>
+              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mt-1">Mon-Fri 9AM-6PM PST</p>
             </motion.div>
 
             <motion.div
@@ -275,9 +291,70 @@ export default function Home() {
                 <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold mb-2">Location</h3>
-              <p className="text-gray-600 dark:text-gray-300">123 Innovation Drive<br />San Francisco, CA 94102</p>
+              <p className="text-gray-600 dark:text-gray-300">500 Market Street, Suite 800<br />San Francisco, CA 94105</p>
             </motion.div>
           </div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="max-w-2xl mx-auto mt-12"
+          >
+            <form
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              className="space-y-4 sm:space-y-6"
+            >
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+                  placeholder="Your message..."
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full px-6 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Send Message
+              </button>
+            </form>
+          </motion.div>
         </div>
       </section>
 
