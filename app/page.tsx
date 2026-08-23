@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Mail, Phone, MapPin, Calendar, Heart, Target, Lightbulb, Handshake } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Mail, Phone, MapPin, Calendar, Heart, Target, Lightbulb, Handshake, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [showPartnershipModal, setShowPartnershipModal] = useState(false);
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
@@ -53,7 +55,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
           >
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
+            <button 
+              onClick={() => setShowPartnershipModal(true)}
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
+            >
               Partner With Us
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -159,7 +164,10 @@ export default function Home() {
               Whether you're a corporation looking for CSR opportunities, a foundation seeking collaboration, or an individual wanting to make a difference, 
               we have partnership programs tailored to your goals. Join our 50+ partners including Fortune 500 companies, international NGOs, and local community organizations.
             </p>
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm sm:text-base">
+            <button 
+              onClick={() => setShowPartnershipModal(true)}
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+            >
               Start a Partnership
             </button>
           </motion.div>
@@ -360,8 +368,95 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-gray-400 text-center">
-        <p>&copy; 2026 Organization. All rights reserved.</p>
+        <p>&copy; 2026 Community Foundation. All rights reserved.</p>
       </footer>
+
+      {/* Partnership Modal */}
+      <AnimatePresence>
+        {showPartnershipModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowPartnershipModal(false)}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            >
+              <div className="p-6 sm:p-8">
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-2">Partnership Opportunities</h3>
+                    <p className="text-gray-600 dark:text-gray-300">Join our network of changemakers</p>
+                  </div>
+                  <button
+                    onClick={() => setShowPartnershipModal(false)}
+                    className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="border-l-4 border-blue-500 pl-4">
+                    <h4 className="font-bold text-lg mb-2">Corporate Partnerships</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      CSR programs, employee engagement, cause marketing, and strategic philanthropy. 
+                      Minimum commitment: $25,000 annually.
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-indigo-500 pl-4">
+                    <h4 className="font-bold text-lg mb-2">Foundation Partnerships</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      Grant collaborations, program funding, and shared initiatives. 
+                      Open to private foundations and charitable trusts.
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-purple-500 pl-4">
+                    <h4 className="font-bold text-lg mb-2">Individual Giving</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      Monthly giving, major gifts, and legacy donations. 
+                      All contributions are tax-deductible (501(c)(3)).
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-green-500 pl-4">
+                    <h4 className="font-bold text-lg mb-2">NGO Collaborations</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                      Joint programs, resource sharing, and capacity building. 
+                      Focus on education, healthcare, and economic development.
+                    </p>
+                  </div>
+
+                  <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                    <h4 className="font-bold mb-2">Next Steps</h4>
+                    <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                      <li>• Contact our partnerships team: partnerships@communityfoundation.org</li>
+                      <li>• Schedule a discovery call to discuss your goals</li>
+                      <li>• Receive a customized partnership proposal</li>
+                      <li>• Review and sign partnership agreement</li>
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={() => setShowPartnershipModal(false)}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
+                  >
+                    Contact Our Partnerships Team
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
